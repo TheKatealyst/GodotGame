@@ -20,5 +20,6 @@ script = ExtResource("1_jif17")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(39, -3)
 sprite_frames = SubResource("SpriteFrames_65jhg")
 animation = &"Idle"
