@@ -18,7 +18,7 @@ size = Vector2(66, 522)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hopki"]
 size = Vector2(43, 200)
 
-[node name="Pipe" type="Area2D"]
+[node name="Pipe" type="Area2D" groups=["pipes"]]
 script = ExtResource("1_83buy")
 
 [node name="Lower" type="Sprite2D" parent="."]
@@ -53,3 +53,4 @@ position = Vector2(60, -1)
 shape = SubResource("RectangleShape2D_hopki")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="ScoreArea" to="." method="_on_score_area_body_entered"]

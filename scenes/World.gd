@@ -1,12 +1,12 @@
 extends Node2D
 
-@export var pipe_scene : PackedScene
+@export var pipe_scene : PackedScene 
 
 var game_running : bool
 var game_over : bool
 var scroll
 var score
-const SCROLL_SPEED : int = 4
+const SCROLL_SPEED : int = 10
 var screen_size : Vector2i
 var ground_height : int
 var pipes : Array
