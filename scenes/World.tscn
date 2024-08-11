@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bk450hnpdmnii"]
+[gd_scene load_steps=8 format=3 uid="uid://bk450hnpdmnii"]
 
 [ext_resource type="Script" path="res://scenes/World.gd" id="1_1ivca"]
 [ext_resource type="Texture2D" uid="uid://daor2k4kl6to0" path="res://art/sky_background_green_hills.png" id="1_856oj"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://tkk7c8a2pw12" path="res://scenes/plane.tscn" id="2_vvmbm"]
 [ext_resource type="PackedScene" uid="uid://dvf1056ubjc80" path="res://scenes/Ground.tscn" id="4_1r2wv"]
 [ext_resource type="PackedScene" uid="uid://c7d8fvu3lgrkw" path="res://scenes/game_over.tscn" id="6_8ta77"]
+[ext_resource type="AudioStream" uid="uid://bb2f2cyu2irvc" path="res://Streams/273475__n_audioman__lazer.wav" id="7_cr15u"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_1ivca")
@@ -20,7 +21,7 @@ offset = Vector2(432, 200)
 [node name="Ground" parent="." instance=ExtResource("4_1r2wv")]
 
 [node name="PipeTimer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 1.5
 
 [node name="ScoreLabel" type="Label" parent="."]
 z_index = 1
@@ -37,6 +38,10 @@ theme_override_font_sizes/font_size = 40
 text = "Score: 0"
 
 [node name="GameOver" parent="." instance=ExtResource("6_8ta77")]
+
+[node name="GameOverNoise" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_cr15u")
+volume_db = -16.0
 
 [connection signal="hit" from="Ground" to="." method="_on_ground_hit"]
 [connection signal="timeout" from="PipeTimer" to="." method="_on_pipe_timer_timeout"]

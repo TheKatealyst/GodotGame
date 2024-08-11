@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://tkk7c8a2pw12"]
+[gd_scene load_steps=5 format=3 uid="uid://tkk7c8a2pw12"]
 
 [ext_resource type="Script" path="res://scenes/plane.gd" id="1_aj8ce"]
 [ext_resource type="Texture2D" uid="uid://bicuookih561m" path="res://art/plane_1_red.png" id="1_xs3x0"]
+[ext_resource type="AudioStream" uid="uid://bcasyd3gdsbqg" path="res://Streams/264828__cmdrobot__text-message-or-videogame-jump.ogg" id="3_6k6kb"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pul8b"]
 radius = 210.0
@@ -18,3 +19,7 @@ shape = SubResource("CapsuleShape2D_pul8b")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("1_xs3x0")
+
+[node name="sfxJump" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_6k6kb")
+volume_db = -16.0

@@ -1,12 +1,13 @@
 extends Node2D
 
 @export var pipe_scene : PackedScene 
+@onready var game_over_noise = $GameOverNoise
 
 var game_running : bool
 var game_over : bool
 var scroll
 var score
-const SCROLL_SPEED : int = 10
+const SCROLL_SPEED : int = 6
 var screen_size : Vector2i
 var ground_height : int
 var pipes : Array
@@ -87,6 +88,7 @@ func check_top():
 		stop_game()
 
 func stop_game():
+	game_over_noise.play()
 	$PipeTimer.stop()
 	$GameOver.show()
 	$Plane.flying = false

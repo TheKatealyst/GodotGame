@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@onready var sfx_jump = $sfxJump
+
 const GRAVITY : int = 1000
 const MAX_VEL : int = 600
 const FLAP_SPEED : int = -500
@@ -32,3 +34,4 @@ func _physics_process(delta):
 		
 func flap():
 	velocity.y = FLAP_SPEED
+	sfx_jump.play()
