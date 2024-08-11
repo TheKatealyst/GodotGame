@@ -1,3 +1,39 @@
-[gd_scene format=3 uid="uid://bk450hnpdmnii"]
+[gd_scene load_steps=7 format=3 uid="uid://bk450hnpdmnii"]
+
+[ext_resource type="Script" path="res://scenes/World.gd" id="1_1ivca"]
+[ext_resource type="Texture2D" uid="uid://daor2k4kl6to0" path="res://art/sky_background_green_hills.png" id="1_856oj"]
+[ext_resource type="PackedScene" uid="uid://r4a3p8s4pxdr" path="res://scenes/pipe.tscn" id="2_amvjc"]
+[ext_resource type="PackedScene" uid="uid://tkk7c8a2pw12" path="res://scenes/plane.tscn" id="2_vvmbm"]
+[ext_resource type="PackedScene" uid="uid://dvf1056ubjc80" path="res://scenes/Ground.tscn" id="4_1r2wv"]
+[ext_resource type="PackedScene" uid="uid://c7d8fvu3lgrkw" path="res://scenes/game_over.tscn" id="6_8ta77"]
 
 [node name="World" type="Node2D"]
+script = ExtResource("1_1ivca")
+pipe_scene = ExtResource("2_amvjc")
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("1_856oj")
+offset = Vector2(432, 200)
+
+[node name="Plane" parent="." instance=ExtResource("2_vvmbm")]
+
+[node name="Ground" parent="." instance=ExtResource("4_1r2wv")]
+
+[node name="PipeTimer" type="Timer" parent="."]
+wait_time = 1.5
+
+[node name="ScoreLabel" type="Label" parent="."]
+z_index = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 343.0
+offset_top = 2.0
+offset_right = 493.0
+offset_bottom = 57.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 40
+text = "Score: 0"
+metadata/_edit_use_anchors_ = true
+
+[node name="GameOver" parent="." instance=ExtResource("6_8ta77")]

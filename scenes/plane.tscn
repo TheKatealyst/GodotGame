@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://tkk7c8a2pw12"]
+
+[ext_resource type="Script" path="res://scenes/plane.gd" id="1_aj8ce"]
+[ext_resource type="Texture2D" uid="uid://bicuookih561m" path="res://art/plane_1_red.png" id="1_xs3x0"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pul8b"]
+radius = 210.0
+height = 712.0
+
+[node name="Plane" type="CharacterBody2D"]
+script = ExtResource("1_aj8ce")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+scale = Vector2(0.1, 0.1)
+shape = SubResource("CapsuleShape2D_pul8b")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_xs3x0")
